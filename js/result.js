@@ -1,32 +1,46 @@
 const result = document.querySelector(".result");
 const back_btn = document.querySelector("#check_list button");
+const class1_result = document.querySelector(".class1_result");
+const class2a_result = document.querySelector(".class2a_result");
+const class2b_result = document.querySelector(".class2b_result");
+const class3_result = document.querySelector(".class3_result");
+const majorText = document.querySelector(".major_result");
+let flag = true;
 
-function paintResult() {
-    const major_num = document.querySelector(".major_num");
-    if(colleage.value===''){
-        alert("단과대학 및 학과를 선택하세요.");
-        return;
-    }
-    if(!major_num.value){
-        alert("전공 학점을 입력하세요.");
-        return;
-    }else{
-        back_btn.classList.remove("hidden");
-        resultView();
-        viewGE();
-        viewMajor(major_num.value);
-
-    }   
+function clearResult() {
+    removeAllChild(class1_result);
+    removeAllChild(class2a_result);
+    removeAllChild(class2b_result);
+    removeAllChild(class3_result);
+    removeAllChild(majorText);
+    majorText.classList.remove("noClass")
 }
 
-function viewGE(){
-    const class1_result = document.querySelector(".class1_result");
+function paintResult() {
+    clearResult();
+    if(flag === true){
+        flag = false;
+        const major_num = document.querySelector(".major_num");
+        if(colleage.value===''){
+            alert("단과대학 및 학과를 선택하세요.");
+            return;
+        }
+        if(!major_num.value){
+            alert("전공 학점을 입력하세요.");
+            return;
+        }else{
+         back_btn.classList.remove("hidden");
+         resultView();
+         viewGE();
+         viewMajor(major_num.value);
+        }     
+    }
+}
+
+function viewGE(){   
     const class1 = document.querySelector(".class1 .class_form");
-    const class2a_result = document.querySelector(".class2a_result");
     const class2a = document.querySelector(".class2 .class_form");
-    const class2b_result = document.querySelector(".class2b_result");
     const class2b = document.querySelector(".class2 div:nth-child(2) .class_form");
-    const class3_result = document.querySelector(".class3_result");
     const class3 = document.querySelector(".class3 .class_form");
     
     GEpaint(class1_result,class1);
@@ -87,17 +101,17 @@ function GEadd(object){
 
 function viewMajor(num){
     const major = department.options[department.selectedIndex].value;
-    const majorText = document.querySelector(".major_result");
 
     majorText.innerText = `전공학점(기준/이수/미이수) : ${major}/${num}/${major-num}`;
     majorText.classList.add("class_title");
-    majorText.classList.add("noClass");
+    if(parseInt(major-num) > 0) majorText.classList.add("noClass");
 }
 
 function resultHidden() {
     body.classList.remove("hidden");
     result.classList.add("hidden");
     back_btn.classList.add("hidden");
+    flag = true;
 }
 
 function resultView(){
