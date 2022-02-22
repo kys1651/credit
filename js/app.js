@@ -42,6 +42,7 @@ function departmentlist() {
     else if(col === "글로벌인문대학") {
         department.add(creative_option("영어영문과",60));
         department.add(creative_option("아랍어과",60));
+        department.add(creative_option("GBC학과",60));
     }
     else if(col === "자보안대학") {
         department.add(creative_option("의생명과학과",60));
