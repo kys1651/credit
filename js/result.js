@@ -105,7 +105,6 @@ function viewMajor(num){
     majorText.innerText = `전공학점(기준/이수/미이수) : ${major}/${num}/${major-num}`;
     majorText.classList.add("class_title");
     if(parseInt(major-num) > 0) majorText.classList.add("noClass");
-    console.log(parseInt(major-num));
 }
 
 function resultHidden() {
