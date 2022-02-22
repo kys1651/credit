@@ -25,6 +25,7 @@ function departmentlist() {
     else if(col === "법사회대학") {
         department.add(creative_option("법학과",66));
         department.add(creative_option("공공인재법무학과",60));
+        department.add(creative_option("행정복지학부",60));
     }
     else if(col === "사범대학") {
         department.add(creative_option("화학교육과",60));
@@ -35,13 +36,17 @@ function departmentlist() {
     else if(col === "공과대학") {
         department.add(creative_option("전기과",60));
         department.add(creative_option("건축학과(5년제)",95));
+        department.add(creative_option("토목공학과",60));
+        department.add(creative_option("신소재공학과",60));
     }
     else if(col === "글로벌인문대학") {
         department.add(creative_option("영어영문과",60));
+        department.add(creative_option("아랍어과",60));
     }
     else if(col === "자보안대학") {
         department.add(creative_option("의생명과학과",60));
         department.add(creative_option("언어치료학과",60));
+        department.add(creative_option("상담심리학과",60));
     }
     else if(col === "미술체육대학") {
         department.add(creative_option("디자인공학과",76));
