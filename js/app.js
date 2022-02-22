@@ -10,13 +10,24 @@ button.classList.add("button");
 
 function departmentlist() {
     removeAllChild(department);
-    const col = colleage.value;
-
-    if(col==="IT") {
+    const col = colleage.options[colleage.selectedIndex].innerText;
+    
+    if(col==="IT융합대학") {
         department.add(creative_option("컴퓨터공학과",84));
         department.add(creative_option("전자공학부",84));
         department.add(creative_option("임베디드보안",84));
         department.add(creative_option("정보통신(공학교육비인증)",70));
+    }
+    else if(col === "경상대학") {
+        department.add(creative_option("경영학부",60));
+        department.add(creative_option("무역학과",60));
+    }
+    else if(col === "법사회대학") {
+        department.add(creative_option("법학과",60));
+    }
+    else if(col === "사범대학") {
+        department.add(creative_option("화학교육과",60));
+        department.add(creative_option("영어교육과",60));
     }
 }
 
