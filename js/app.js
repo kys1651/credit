@@ -16,18 +16,35 @@ function departmentlist() {
         department.add(creative_option("컴퓨터공학과",84));
         department.add(creative_option("전자공학부",84));
         department.add(creative_option("임베디드보안",84));
-        department.add(creative_option("정보통신(공학교육비인증)",70));
+        department.add(creative_option("정보통신공학과",70));
     }
     else if(col === "경상대학") {
         department.add(creative_option("경영학부",60));
         department.add(creative_option("무역학과",60));
     }
     else if(col === "법사회대학") {
-        department.add(creative_option("법학과",60));
+        department.add(creative_option("법학과",66));
+        department.add(creative_option("공공인재법무학과",60));
     }
     else if(col === "사범대학") {
         department.add(creative_option("화학교육과",60));
         department.add(creative_option("영어교육과",60));
+        department.add(creative_option("특수교육과",50));
+        department.add(creative_option("국어교육과",60));
+    }
+    else if(col === "공과대학") {
+        department.add(creative_option("전기과",60));
+        department.add(creative_option("건축학과(5년제)",95));
+    }
+    else if(col === "글로벌인문대학") {
+        department.add(creative_option("영어영문과",60));
+    }
+    else if(col === "자보안대학") {
+        department.add(creative_option("의생명과학과",60));
+        department.add(creative_option("언어치료학과",60));
+    }
+    else if(col === "미술체육대학") {
+        department.add(creative_option("디자인공학과",76));
     }
 }
 
