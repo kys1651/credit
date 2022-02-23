@@ -19,6 +19,7 @@ function departmentlist() {
         department.add(creative_option("전자공학부",84));
         department.add(creative_option("임베디드보안",84));
         department.add(creative_option("정보통신공학과",70));
+        department.add(creative_option("인공지능공학과",70));
     }
     else if(col === "경상대학") {
         department.add(creative_option("경영학부",60));
@@ -36,6 +37,7 @@ function departmentlist() {
         department.add(creative_option("영어교육과",60));
         department.add(creative_option("특수교육과",50));
         department.add(creative_option("국어교육과",60));
+        department.add(creative_option("수학교육과",60));
     }
     else if(col === "공과대학") {
         department.add(creative_option("전기과",60));
@@ -60,11 +62,14 @@ function departmentlist() {
         department.add(creative_option("언어치료학과",60));
         department.add(creative_option("상담심리학과",60));
         department.add(creative_option("경찰행정학과",60));
+        department.add(creative_option("식품영약학과",66));
     }
     else if(col === "미술체육대학") {
         department.add(creative_option("디자인공학과",76));
         department.add(creative_option("현대조형미디어학과",76));
         department.add(creative_option("회화학과(한국화)",60));
+        department.add(creative_option("섬유패션디자인학과",60));
+        department.add(creative_option("체육학과",60));
     }
     else if(col === "의과대학") {
         department.add(creative_option("간호학과",76));
