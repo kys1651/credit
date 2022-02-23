@@ -22,7 +22,11 @@ function paintResult() {
         flag = false;
         const major_num = document.querySelector(".major_num");
         if(colleage.value===''){
-            alert("단과대학 및 학과를 선택하세요.");
+            alert("단과대학을 선택하세요.");
+            return;
+        }
+        if(department.options[department.selectedIndex].value==0){
+            alert("학과를 선택하세요.");
             return;
         }
         if(!major_num.value){

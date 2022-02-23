@@ -12,6 +12,8 @@ function departmentlist() {
     removeAllChild(department);
     col = colleage.options[colleage.selectedIndex].innerText;
     
+    department.add(creative_option("--선택하세요--",0));
+
     if(col==="IT융합대학") {
         department.add(creative_option("컴퓨터공학과",84));
         department.add(creative_option("전자공학부",84));
@@ -100,12 +102,20 @@ function check_class1(year) {
 }
 
 function check_class2(year){
+    let check = document.querySelector("#department-select");
+
     const div = document.createElement("div");
     div.classList.add("class2");
 
     const a = document.createElement("div");
 
-    const h2_a = creative_h2("기초교양/기본교육",(year==="18-19"||year=="20")?14:8);
+    let h2_a;
+    if(check.options[check.selectedIndex].innerText==="영어영문학과"){
+        h2_a = creative_h2("기초교양/기본교육",16);
+    }
+    else{
+        h2_a = creative_h2("기초교양/기본교육",(year==="18-19"||year=="20")?14:8);
+    }
     h2_a.classList.add("class_title");
     a.appendChild(h2_a);
     
@@ -114,9 +124,15 @@ function check_class2(year){
 
     form_a.appendChild(creative_checkbox("사고와 표현1 ",2));
     form_a.appendChild(creative_checkbox("사고와 표현2 ",2));
-    form_a.appendChild(creative_checkbox(((year==="18-19"||year=="20")?"대학영어 ":"EAL" ),2));
-    form_a.appendChild(creative_checkbox(((year==="18-19"||year=="20")?
-        ((department.options[department.selectedIndex].innerText==="영어영문학과")?"esl":"생활영어1,2 "):"EGC" ),2));
+    
+    
+    if(check.options[check.selectedIndex].innerText==="영어영문학과"){
+        form_a.appendChild(creative_checkbox("ESL1",3));
+        form_a.appendChild(creative_checkbox("ESL2",3));    
+    }else{
+        form_a.appendChild(creative_checkbox(((year==="18-19"||year=="20")?"대학영어 ":"EAL" ),2));
+        form_a.appendChild(creative_checkbox(((year==="18-19"||year=="20")?"생활영어1,2 ":"EGC" ),2));
+    }
 
     const b = document.createElement("div");
     const form_b = document.createElement("form");
@@ -209,9 +225,11 @@ function creative_option(text,num){
 }
 
 function changeSelect() {
-    selected = select.options[select.selectedIndex].value;
-    removeAllChild(body);
-    creative(selected);
+    if(department.options[department.selectedIndex].value !== 0){
+        selected = select.options[select.selectedIndex].value;
+        removeAllChild(body);
+        creative(selected);
+    }
 }
 
 function removeAllChild(item) {
@@ -220,6 +238,5 @@ function removeAllChild(item) {
     }
 }
 
-select.addEventListener("change",changeSelect);
 colleage.addEventListener("change",departmentlist);
-
+department.addEventListener("change",changeSelect);
