@@ -3,14 +3,14 @@ const colleage = document.querySelector("#colleage-select");
 const body = document.querySelector(".body");
 const department = document.querySelector("#department-select");
 const button = document.createElement("button");
-
+let col;
 let selected;
 button.innerText = "결과";
 button.classList.add("button");
 
 function departmentlist() {
     removeAllChild(department);
-    const col = colleage.options[colleage.selectedIndex].innerText;
+    col = colleage.options[colleage.selectedIndex].innerText;
     
     if(col==="IT융합대학") {
         department.add(creative_option("컴퓨터공학과",84));
@@ -20,12 +20,14 @@ function departmentlist() {
     }
     else if(col === "경상대학") {
         department.add(creative_option("경영학부",60));
+        department.add(creative_option("경제학과",60));
         department.add(creative_option("무역학과",60));
     }
     else if(col === "법사회대학") {
         department.add(creative_option("법학과",66));
         department.add(creative_option("공공인재법무학과",60));
         department.add(creative_option("행정복지학부",60));
+        department.add(creative_option("정치외교학과",60));
     }
     else if(col === "사범대학") {
         department.add(creative_option("화학교육과",60));
@@ -38,19 +40,32 @@ function departmentlist() {
         department.add(creative_option("건축학과(5년제)",95));
         department.add(creative_option("토목공학과",60));
         department.add(creative_option("신소재공학과",60));
+        department.add(creative_option("기계공학과",60));
+        department.add(creative_option("환경공학과",60));
+        department.add(creative_option("생명화학공학과",60));
     }
     else if(col === "글로벌인문대학") {
-        department.add(creative_option("영어영문과",60));
+        department.add(creative_option("스페인어학과",60));
+        department.add(creative_option("영어영문학과",60));
+        department.add(creative_option("국어국문학과",60));
         department.add(creative_option("아랍어과",60));
         department.add(creative_option("GBC학과",60));
+        department.add(creative_option("역사문화학과",54));
+        department.add(creative_option("아언문",54));
     }
     else if(col === "자보안대학") {
         department.add(creative_option("의생명과학과",60));
         department.add(creative_option("언어치료학과",60));
         department.add(creative_option("상담심리학과",60));
+        department.add(creative_option("경찰행정학과",60));
     }
     else if(col === "미술체육대학") {
         department.add(creative_option("디자인공학과",76));
+        department.add(creative_option("현대조형미디어학과",76));
+        department.add(creative_option("회화학과(한국화)",60));
+    }
+    else if(col === "의과대학") {
+        department.add(creative_option("간호학과",76));
     }
 }
 
@@ -100,7 +115,8 @@ function check_class2(year){
     form_a.appendChild(creative_checkbox("사고와 표현1 ",2));
     form_a.appendChild(creative_checkbox("사고와 표현2 ",2));
     form_a.appendChild(creative_checkbox(((year==="18-19"||year=="20")?"대학영어 ":"EAL" ),2));
-    form_a.appendChild(creative_checkbox(((year==="18-19"||year=="20")?"생활영어1,2 ":"EGC" ),2));
+    form_a.appendChild(creative_checkbox(((year==="18-19"||year=="20")?
+        ((department.options[department.selectedIndex].innerText==="영어영문학과")?"esl":"생활영어1,2 "):"EGC" ),2));
 
     const b = document.createElement("div");
     const form_b = document.createElement("form");
@@ -114,8 +130,7 @@ function check_class2(year){
         form_a.appendChild(creative_checkbox("'고전 및 외국어'영역 ",3));
         form_a.appendChild(creative_checkbox("'정보이해'영역 ",3));
     }else {
-        form_b.appendChild(creative_checkbox("'고전'영역 ",3));
-        form_b.appendChild(creative_checkbox("'글로벌'영역 ",3));
+        form_b.appendChild(creative_checkbox("'고전 및 글로벌'영역 ",3));
         form_b.appendChild(creative_checkbox("'정보(SW.AI)'영역 ",3));
     }
     form_b.appendChild(creative_checkbox("'기초인문사회과학'영역 ","계열별 상이"));
