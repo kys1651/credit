@@ -49,7 +49,7 @@ function departmentlist() {
         department.add(creative_option("생명화학공학과",60));
     }
     else if(col === "글로벌인문대학") {
-        department.add(creative_option("스페인어학과",60));
+        department.add(creative_option("스페인어과",60));
         department.add(creative_option("영어영문학과",60));
         department.add(creative_option("국어국문학과",60));
         department.add(creative_option("아랍어과",60));
